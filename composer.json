@@ -18,7 +18,7 @@
 		"spatie/laravel-activitylog": "^4.10",
 		"laravolt/avatar": "^6.3",
 		"vicky-project/menumanagement-module": "^1.0",
-		"vicky-project/viewmanager-module": "*"
+		"vicky-project/viewmanager-module": "^1.0"
 	},
 	"extra": {
 		"laravel": {
