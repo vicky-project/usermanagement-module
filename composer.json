@@ -1,7 +1,7 @@
 {
 	"name": "vicky-project/usermanagement-module",
 	"type": "laravel-module",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "User Management module for admin application. Build on top of nwidart/laravel-modules",
 	"authors": [
 		{
@@ -17,6 +17,7 @@
 		"spatie/laravel-permission": "^6.23",
 		"spatie/laravel-activitylog": "^4.10",
 		"laravolt/avatar": "^6.3",
+		"rappasoft/laravel-authentication-log": "^5.*",
 		"vicky-project/menumanagement-module": "^1.0",
 		"vicky-project/viewmanager-module": "^1.0"
 	},
