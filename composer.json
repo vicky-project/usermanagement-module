@@ -17,7 +17,7 @@
 		"spatie/laravel-permission": "^6.23",
 		"spatie/laravel-activitylog": "^4.10",
 		"laravolt/avatar": "^6.3",
-		"rappasoft/laravel-authentication-log": "^5.*",
+		"rappasoft/laravel-authentication-log": "^5.0",
 		"vicky-project/menumanagement-module": "^1.0",
 		"vicky-project/viewmanager-module": "^1.0"
 	},
