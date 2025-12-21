@@ -19,7 +19,7 @@ class PostInstallation
 
 			Artisan::call("migrate", ["--force" => true]);
 			Artisan::call("module:seed", [
-				"--module" => $module->getName(),
+				"module" => $module->getName(),
 				"--force" => true,
 			]);
 		} catch (\Exception $e) {
