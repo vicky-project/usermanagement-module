@@ -16,7 +16,8 @@
 		"spatie/laravel-permission": "^6.24",
 		"spatie/laravel-activitylog": "^4.10",
 		"laravolt/avatar": "^6.3",
-		"rappasoft/laravel-authentication-log": "^6.0"
+		"rappasoft/laravel-authentication-log": "^6.0",
+		"torann/geoip": "^3.0"
 	},
 	"extra": {
 		"laravel": {
