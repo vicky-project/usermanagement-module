@@ -18,7 +18,7 @@
     <x-core-navbar />
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
-        <x-core-sidebar :sidebarServerMenus=$sidebarServerMenus :sidebarApplicationMenus=$sidebarApplicationMenus />
+        <x-core-sidebar />
       </div>
       <div id="layoutSidenav_content">
         <main class="my-4">
