@@ -15,9 +15,7 @@ class PostInstallation
 			$module->enable();
 
 			$result = $this->insertTraitToUserModel();
-			if ($result["success"] === false) {
-				throw new \Exception($result["message"]);
-			}
+			logger()->info($result["message"]);
 
 			Artisan::call("migrate", ["--force" => true]);
 			Artisan::call("module:seed", [
