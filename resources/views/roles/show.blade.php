@@ -1,9 +1,9 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 @use('Modules\UserManagement\Services\PermissionRegistry')
 
-@section('paget-title', 'Role Details - '. $role->name)
+@section('title', 'Role Details - '. $role->name)
 
 @section("content")
 <div class="card">

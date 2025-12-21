@@ -1,6 +1,6 @@
-@extends('usermanagement::layouts.master')
+@extends('usermanagement::layouts.app')
 
-@section('page-title', isset($user) ? 'Edit User' : 'Create User')
+@section('title', isset($user) ? 'Edit User' : 'Create User')
 
 @section('page-actions')
     <a href="{{ route('usermanagement.users.index') }}" class="btn btn-outline-secondary">
@@ -8,7 +8,7 @@
     </a>
 @endsection
 
-@section('usermanagement-content')
+@section('content')
 <div class="row">
     <div class="col-lg-8">
         <div class="card">

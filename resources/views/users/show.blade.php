@@ -1,8 +1,8 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 
-@section('page-title', 'User Details - ' . $user->name)
+@section('title', 'User Details - ' . $user->name)
 
 @section('content')
 <div class="card mb-4">
