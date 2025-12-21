@@ -14,7 +14,10 @@ class PostInstallation
 			$module = Module::find($moduleName);
 			$module->enable();
 
-			$this->insertTraitToUserModel();
+			$result = $this->insertTraitToUserModel();
+			if ($result["success"] === false) {
+				throw new \Exception($result["message"]);
+			}
 
 			Artisan::call("migrate", ["--force" => true]);
 			Artisan::call("module:seed", [
@@ -33,10 +36,8 @@ class PostInstallation
 
 	private function insertTraitToUserModel()
 	{
-		$result = TraitInserter::insertTrait(
+		return TraitInserter::insertTrait(
 			"Modules\UserManagement\Traits\UserSetting"
 		);
-
-		dd($result);
 	}
 }
