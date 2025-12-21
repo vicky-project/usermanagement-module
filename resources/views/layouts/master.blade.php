@@ -15,21 +15,17 @@
     @stack('styles')
   </head>
   <body class="sb-nav-fixed">
-    <x-core-navbar />
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
-        <x-core-sidebar />
       </div>
       <div id="layoutSidenav_content">
         <main class="my-4">
           <div class="container-fluid px-4">
-            <x-core-breadcrumb />
 
             @yield('content')
             
           </div>
         </main>
-        <x-core-footer />
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
