@@ -2,6 +2,7 @@
 
 namespace Modules\UserManagement\Traits;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -12,7 +13,11 @@ use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 trait UserSetting
 {
-	use HasRoles, CausesActivity, LogsActivity, AuthenticationLoggable;
+	use HasRoles,
+		CausesActivity,
+		LogsActivity,
+		AuthenticationLoggable,
+		SoftDeletes;
 
 	/**
 	 * Activity Log Options
