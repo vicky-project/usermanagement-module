@@ -3,13 +3,14 @@
 namespace Modules\UserManagement\Console;
 
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class CreateUserCommand extends Command
+class CreateUserCommand extends Command implements PromptsForMissingInput
 {
 	/**
 	 * The name and signature of the console command.
@@ -32,7 +33,7 @@ class CreateUserCommand extends Command
 		$username = $this->ask("What is the username");
 		$password = $this->secret("What is the password?");
 		$roles = $this->anticipate("Choice role", function (string $input) {
-			return Permission::whereLike("name", "{$input}%")
+			return Role::whereLike("name", "{$input}%")
 				->pluck("name")
 				->all();
 		});
