@@ -25,11 +25,13 @@ class UserProfile extends Model
 		"gender",
 		"bio",
 		"avatar",
+		"configuration",
 		"preferences",
 	];
 
 	protected $casts = [
 		"date_of_birth" => "date",
+		"configuration" => "array",
 		"preferences" => "array",
 	];
 

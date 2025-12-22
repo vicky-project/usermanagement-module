@@ -14,7 +14,7 @@ class UserStoreRequest extends FormRequest
 		return auth()->check() &&
 			(new PermissionRegistry())->userCan(
 				auth()->user(),
-				permission::CREATE_USERS
+				Permissions::CREATE_USERS
 			);
 	}
 

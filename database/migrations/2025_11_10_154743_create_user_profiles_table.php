@@ -26,6 +26,7 @@ return new class extends Migration {
 			$table->string("gender")->nullable();
 			$table->text("bio")->nullable();
 			$table->string("avatar")->nullable();
+			$table->json("configuration")->nullable();
 			$table->json("preferences")->nullable();
 			$table->timestamps();
 
