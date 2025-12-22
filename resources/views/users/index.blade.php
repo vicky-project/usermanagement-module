@@ -11,9 +11,7 @@
     @can(Permissions::CREATE_USERS)
     <div class="float-end ms-auto">
       <a href="{{ route('usermanagement.users.create') }}" class="btn btn-success">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-plus"></i>
       </a>
     </div>
     @endcan
@@ -38,26 +36,24 @@
             <td>
               <div class="btn-group" role="group">
                 <a href="{{ route('usermanagement.users.show', ["user" => $user]) }}" class="btn btn-outline-primary" title="View">
-                  <svg class="icon">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-zoom') }}"></use>
-                  </svg>
+                  <i class="fas fa-fw fa-eye"></i>
                 </a>
                 @can(Permissions::MANAGE_USERS)
                 <form method="POST" action="{{ route('usermanagement.users.toggle-active', ['user' => $user]) }}" id="form-toggle-active">
                   @csrf
                   <input type="checkbox" class="btn-check" id="btn-user-active" @checked($user->is_active) autocomplete="off">
                   <label class="btn @if($user->is_active) btn-outline-success @else btn-outline-danger @endif" for="btn-user-active">
-                    <svg class="icon">
-                      <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-' . ($user->is_active ? 'toggle-on' : 'toggle-off')) }}"></use>
-                    </svg>
+                    @if($user->is_active)
+                    <i class="fas fa-fw fa-toggle-on"></i>
+                    @else
+                    <i class="fas fa-fw fa-toggle-off"></i>
+                    @endif
                   </label>
                 </form>
                 @endcan
                 @can(Permissions::EDIT_USERS)
                 <a href="{{ route('usermanagement.users.edit', ["user" => $user]) }}" class="btn btn-outline-secondary" title="Edit">
-                  <svg class="icon">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-pen') }}"></use>
-                  </svg>
+                  <i class="fas fa-fw fa-edit"></i>
                 </a>
                 @endcan
               </div>
