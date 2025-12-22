@@ -12,6 +12,9 @@ Route::middleware(["web", "auth"])
 	->name("usermanagement.")
 	->group(function () {
 		// Users Routes
+		Route::get("users/trashed", [UserController::class, "trashed"])->name(
+			"users.trashed"
+		);
 		Route::post("users/trashed/{user}/restore", [
 			UserController::class,
 			"restore",
@@ -20,9 +23,6 @@ Route::middleware(["web", "auth"])
 			UserController::class,
 			"delete",
 		])->name("users.trashed.delete");
-		Route::get("users/trashed", [UserController::class, "trashed"])->name(
-			"users.trashed"
-		);
 
 		Route::resource("users", UserController::class);
 
