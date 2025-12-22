@@ -57,11 +57,13 @@
                 </a>
                 @endcan
                 @can(Permissions::DELETE_USERS)
+                @if($user->id !== \Auth::id())
                 <form method="POST" action="{{ route('usermanagement.users.destroy', ['user' => $user]) }}">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-outline-danger" title="Delete" onclick="return confirm('Are you sure to delete this user?');"><i class="fas-fa-fw fa-trash"></i></button>
                 </form>
+                @endif
                 @endcan
               </div>
             </td>
