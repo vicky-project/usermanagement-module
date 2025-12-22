@@ -1,6 +1,6 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
-@section('page-title', 'Your Profile')
+@section('title', 'Your Profile')
 
 @section('content')
 <div class="card">

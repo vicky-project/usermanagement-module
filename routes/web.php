@@ -12,12 +12,25 @@ Route::middleware(["web", "auth"])
 	->name("usermanagement.")
 	->group(function () {
 		// Users Routes
+		Route::get("users/trashed", [UserController::class, "trashed"])->name(
+			"users.trashed"
+		);
+
 		Route::resource("users", UserController::class);
+
+		Route::post("users/{user}/restore", [
+			UserController::class,
+			"restore",
+		])->name("users.restore");
+		Route::post("users/{user}/delete", [UserController::class, "delete"])->name(
+			"users.delete"
+		);
 		Route::post("users/{user}/toggle", [
 			UserController::class,
 			"toggleActive",
 		])->name("users.toggle-active");
 
+		// Roles Routes
 		Route::resource("roles", RoleController::class);
 		Route::post("roles/{role}/sync-perms", [
 			RoleController::class,

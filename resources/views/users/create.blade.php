@@ -1,6 +1,6 @@
-@extends('usermanagement::layouts.master')
+@extends('usermanagement::layouts.app')
 
-@section('page-title', isset($user) ? 'Edit User' : 'Create User')
+@section('title', isset($user) ? 'Edit User' : 'Create User')
 
 @section('page-actions')
     <a href="{{ route('usermanagement.users.index') }}" class="btn btn-outline-secondary">
@@ -8,7 +8,7 @@
     </a>
 @endsection
 
-@section('usermanagement-content')
+@section('content')
 <div class="row">
     <div class="col-lg-8">
         <div class="card">
@@ -64,7 +64,7 @@
                             <select class="form-select @error('roles') is-invalid @enderror" 
                                     id="roles" name="roles[]" multiple required>
                                 @foreach($roles as $role)
-                                <option value="{{ $role->id }}" 
+                                <option value="{{ $role->name }}" 
                                     {{ in_array($role->id, old('roles', isset($user) ? $user->roles->pluck('id')->toArray() : [])) ? 'selected' : '' }}>
                                     {{ $role->name }}
                                 </option>

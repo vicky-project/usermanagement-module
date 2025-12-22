@@ -1,18 +1,16 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 @use('Modules\UserManagement\Services\PermissionRegistry')
 
-@section('paget-title', 'Role Details - '. $role->name)
+@section('title', 'Role Details - '. $role->name)
 
 @section("content")
 <div class="card">
   <div class="card-header text-end">
     <div class="float-start me-auto">
       <a href="{{ route('usermanagement.roles.index') }}" class="btn btn-secondary" role="button">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-left') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-arrow-left"></i>
       </a>
     </div>
     <h5 class="card-title">{{ $role->name }}</h5>
@@ -57,9 +55,7 @@
       </div>
       <div class="pt-2 mt-4 border-top border-primary">
         <button type="submit" class="btn btn-block btn-success" @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::MANAGE_ROLES))>
-          <svg class="icon me-2">
-            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-sync') }}"></use>
-          </svg>
+          <i class="fas fa-fw fa-sync-alt"></i>
           Apply
         </button>
       </div>
@@ -68,7 +64,7 @@
 </div>
 @endsection
 
-@section("scripts")
+@push("scripts")
 <script>
   function toggleCheckboxPermissions(btn) {
     const checked = btn.checked;
@@ -95,4 +91,4 @@
     }
   });
 </script>
-@endsection
+@endpush

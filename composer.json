@@ -11,15 +11,11 @@
 	],
 	"require": {
 		"php": "^8.2",
-		"laravel/framework": "^12.0",
-		"nwidart/laravel-modules": "^5.0",
+		"nwidart/laravel-modules": "^12.0",
 		"joshbrw/laravel-module-installer": "^1.0",
-		"spatie/laravel-permission": "^6.23",
-		"spatie/laravel-activitylog": "^4.10",
+		"spatie/laravel-permission": "^6.24",
 		"laravolt/avatar": "^6.3",
-		"rappasoft/laravel-authentication-log": "^5.0",
-		"vicky-project/menumanagement-module": "^1.0",
-		"vicky-project/logmanagement-module": "^1.0"
+		"vicky-project/core-module": "^1.0"
 	},
 	"extra": {
 		"laravel": {

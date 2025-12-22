@@ -1,17 +1,15 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 
-@section('page-title', 'Permission Detail')
+@section('title', 'Permission Detail')
 
 @section('content')
 <div class="card">
   <div class="card-header text-end">
     <div class="float-start me-auto">
       <a href="{{ route('usermanagement.permissions.index') }}" class="btn btn-secondary">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-left') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-arrow-left"></i>
       </a>
     </div>
     <h5 class="card-title">{{ $permission->description}}</h5><span class="small ms-2">{{ $permission->name}}</span>

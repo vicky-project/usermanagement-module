@@ -1,8 +1,8 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 
-@section('page-title', 'Manage Permissions')
+@section('title', 'Manage Permissions')
 
 @section('content')
 <div class="card mb-3">
@@ -11,9 +11,7 @@
     <span class="small ms-2">All permission available ({{ $permissions->total() }} items.)</span>
     <div class="float-end ms-auto">
       <a href="{{ route('usermanagement.permissions.create') }}" class="btn btn-success">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-plus"></i>
       </a>
     </div>
   </div>
@@ -36,16 +34,12 @@
               <div class="btn-group" role="group">
                 @can(Permissions::VIEW_PERMISSIONS)
                 <a href="{{ route('usermanagement.permissions.show', $permission) }}" class="btn btn-outline-primary" title="View">
-                  <svg class="icon">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-zoom') }}"></use>
-                  </svg>
+                  <i class="fas fa-fw fa-eye"></i>
                 </a>
                 @endcan
                 @can(Permissions::EDIT_PERMISSIONS)
                 <a href="{{ route('usermanagement.permissions.edit', $permission) }}" class="btn btn-outline-primary" title="Edit">
-                  <svg class="icon">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-pen') }}"></use>
-                  </svg>
+                  <i class="fas fa-fw fa-edit"></i>
                 </a>
                 @endcan
               </div>

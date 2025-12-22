@@ -4,6 +4,7 @@ namespace Modules\UserManagement\Installations;
 
 use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Artisan;
+use Modules\Core\Services\Generators\TraitInserter;
 
 class PostInstallation
 {
@@ -13,9 +14,12 @@ class PostInstallation
 			$module = Module::find($moduleName);
 			$module->enable();
 
-			Artisan::call("migrate", ["--force" => true]);
+			$result = $this->insertTraitToUserModel();
+			logger()->info($result["message"]);
+
+			Artisan::call("migrate:fresh", ["--force" => true]);
 			Artisan::call("module:seed", [
-				"--module" => $module->getName(),
+				"module" => $module->getName(),
 				"--force" => true,
 			]);
 		} catch (\Exception $e) {
@@ -26,5 +30,12 @@ class PostInstallation
 
 			throw $e;
 		}
+	}
+
+	private function insertTraitToUserModel()
+	{
+		return TraitInserter::insertTrait(
+			"Modules\UserManagement\Traits\UserSetting"
+		);
 	}
 }

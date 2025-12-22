@@ -1,8 +1,8 @@
-@extends('viewmanager::layouts.app')
+@extends('usermanagement::layouts.app')
 
 @use('Modules\UserManagement\Constants\Permissions')
 
-@section('page-title', 'Manage Roles')
+@section('title', 'Manage Roles')
 
 @section('content')
 <div class="card">
@@ -11,9 +11,7 @@
     @can(Permissions::CREATE_ROLES)
     <div class="float-end ms-auto">
       <a href="{{ route('usermanagement.roles.create') }}" class="btn btn-success">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-plus"></i>
       </a>
     </div>
     @endcan
@@ -53,16 +51,12 @@
               <div class="btn-group btn-group-sm">
                 @can(Permissions::VIEW_ROLES)
                 <a href="{{ route('usermanagement.roles.show', ['role' => $role]) }}" class="btn btn-outline-info" title="View">
-                  <svg class="icon m-1">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-equalizer') }}"></use>
-                  </svg>
+                  <i class="fas fa-fw fa-eye"></i>
                 </a>
                 @endcan
                 @can(Permissions::EDIT_ROLES)
                   <a href="{{ route('usermanagement.roles.edit', $role) }}" class="btn btn-outline-warning" title="Edit">
-                    <svg class="icon m-1">
-                      <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-pen') }}"></use>
-                    </svg>
+                    <i class="fas fa-fw fa-edit"></i>
                   </a>
                   @endcan
                   @can(Permissions::DELETE_ROLES)
@@ -71,9 +65,7 @@
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Delete this role?')" title="Delete">
-                        <svg class="icon">
-                          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-trash') }}"></use>
-                        </svg>
+                        <i class="fas fa-fw fa-trash"></i>
                       </button>
                     </form>
                     @endif
