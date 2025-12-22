@@ -37,13 +37,6 @@ class CreateUserCommand extends Command implements PromptsForMissingInput
 				->pluck("name")
 				->all();
 		});
-		dd($roles);
-
-		$prepareData = [
-			"name" => $username,
-			"email" => $email,
-			"password" => $password,
-		];
 
 		$this->table(
 			["name", "email", "password", "roles"],
