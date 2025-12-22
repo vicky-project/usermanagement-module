@@ -21,7 +21,7 @@ class UserStoreRequest extends FormRequest
 	public function rules()
 	{
 		$tableNames = config("permission.table_names");
-		dd($this->request->all());
+
 		return [
 			"name" => "required|string|max:255",
 			"email" => "required|email|unique:users,email",
