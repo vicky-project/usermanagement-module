@@ -25,7 +25,6 @@ class UserStoreRequest extends FormRequest
 			"name" => "required|string|max:255",
 			"email" => "required|email|unique:users,email",
 			"password" => ["required", Password::defaults()],
-			"roles" => "required|array",
 			"roles.*" => "exists:" . $tableNames["roles"] . ",name",
 			"permissions" => "required|array",
 			"permissions.*" => "exists:" . $tableNames["permissions"] . ",name",
