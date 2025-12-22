@@ -64,7 +64,7 @@
 </div>
 @endsection
 
-@section("scripts")
+@push("scripts")
 <script>
   function toggleCheckboxPermissions(btn) {
     const checked = btn.checked;
@@ -91,4 +91,4 @@
     }
   });
 </script>
-@endsection
+@endpush
