@@ -8,16 +8,18 @@
 <div class="card mb-4">
   <div class="card-header">
     <h5 class="card-title">Users</h5><span class="small ms-1">All users available</span>
-    @can(Permissions::CREATE_USERS)
     <div class="float-end ms-auto">
+      @can(Permissions::CREATE_USERS)
       <a href="{{ route('usermanagement.users.create') }}" class="btn btn-success">
         <i class="fas fa-fw fa-plus"></i>
       </a>
+      @endcan
+      @can(Permissions::VIEW_USERS_TRASH)
       <a href="{{ route('usermanagement.users.trashed') }}" class="btn btn-danger">
         <i class="fas fa-fw fa-trash"></i>
       </a>
+      @endcan
     </div>
-    @endcan
   </div>
   <div class="card-body">
     <div class="table-responsive">
