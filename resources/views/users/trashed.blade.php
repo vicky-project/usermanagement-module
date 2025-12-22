@@ -6,6 +6,11 @@
 <div class="card">
   <div class="card-header">
     <h5 class="card-title">Deleted Users</h5>
+    <div class="text-end ms-auto">
+      <a href="{{ route('usermanagement.users.index') }}" class="btn btn-secondary" role="button" title="Back">
+        <i class="fas fa-fw fa-arrow-left"></i>
+      </a>
+    </div>
   </div>
   <div class="card-body">
     <div class="table-responsive">
