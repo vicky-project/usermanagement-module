@@ -40,7 +40,7 @@ class CreateUserCommand extends Command implements PromptsForMissingInput
 
 		$this->table(
 			["name", "email", "password", "roles"],
-			[$username, $email, $password, $roles]
+			[[$username, $email, $password, $roles]]
 		);
 
 		if (!$this->confirm("Is this okay?", true)) {
