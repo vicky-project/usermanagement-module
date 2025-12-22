@@ -4,7 +4,7 @@ namespace Modules\UserManagement\Installations;
 
 use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\Artisan;
-use Modules\UserManagement\Services\TraitInserter;
+use Modules\Core\Services\Generators\TraitInserter;
 
 class PostInstallation
 {
