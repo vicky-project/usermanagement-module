@@ -10,7 +10,7 @@
         <i class="fas fa-fw fa-arrow-left"></i>
       </a>
     </div>
-    <h5 class="card-title">Deleted Users</h5>
+    <h5 class="card-title">Deleted Users</h5><span class="small ms-1">Total: {{$trashed->count()}} items</span>
   </div>
   <div class="card-body">
     <div class="table-responsive">

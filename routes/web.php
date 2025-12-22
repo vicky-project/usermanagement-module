@@ -16,6 +16,8 @@ Route::middleware(["web", "auth"])
 			"users.trashed"
 		);
 
+		Route::resource("users", UserController::class);
+
 		Route::post("users/{user}/restore", [
 			UserController::class,
 			"restore",
@@ -27,8 +29,6 @@ Route::middleware(["web", "auth"])
 			UserController::class,
 			"toggleActive",
 		])->name("users.toggle-active");
-
-		Route::resource("users", UserController::class);
 
 		// Roles Routes
 		Route::resource("roles", RoleController::class);
