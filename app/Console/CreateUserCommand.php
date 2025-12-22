@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class ViewCommand extends Command
+class CreateUserCommand extends Command
 {
 	/**
 	 * The name and signature of the console command.

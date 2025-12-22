@@ -26,6 +26,7 @@ class UserManagementServiceProvider extends ServiceProvider
 
 	public function boot()
 	{
+		$this->registerCommands();
 		$this->registerViews();
 		$this->loadMigrationsFrom(__DIR__ . "/../../database/migrations");
 		$this->loadRoutesFrom(__DIR__ . "/../../routes/web.php");
@@ -62,5 +63,13 @@ class UserManagementServiceProvider extends ServiceProvider
 	protected function registerViews()
 	{
 		$this->loadViewsFrom(__DIR__ . "/../../resources/views", "usermanagement");
+	}
+
+	/**
+	 * Register commands in the format of Command::class
+	 */
+	protected function registerCommands(): void
+	{
+		$this->commands([\Modules\UserManagement\Console\CreateUserCommand::class]);
 	}
 }
