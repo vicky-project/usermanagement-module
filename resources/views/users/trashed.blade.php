@@ -28,11 +28,11 @@
             <td>{{ $trash->deleted_at->diffForHumans() }}</td>
             <td>
               <div class="btn-group">
-                <form method="POST" action="{{ route('usermanagement.users.trashed.restore', ['user' => $trash]) }}">
+                <form method="POST" action="{{ route('usermanagement.users.restore', ['user' => $trash]) }}">
                   @csrf
                   <button type="submit" class="btn btn-outline-warning" title="Restore"><i class="fas fa-fw fa-sync-alt"></i></button>
                 </form>
-                <form method="POST" action="{{ route('usermanagement.users.trashed.delete', ['user' => $trash]) }}">
+                <form method="POST" action="{{ route('usermanagement.users.delete', ['user' => $trash]) }}">
                   @csrf
                   <button type="submit" class="btn btn-outline-danger" title="Permanent Delete" onclick="return confirm('Are you sure to delete permanent this user ?');"><i class="fas fa-fw fa-trash"></i></button>
                 </form>
