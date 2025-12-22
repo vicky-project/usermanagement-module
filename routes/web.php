@@ -15,17 +15,16 @@ Route::middleware(["web", "auth"])
 		Route::get("users/trashed", [UserController::class, "trashed"])->name(
 			"users.trashed"
 		);
-		Route::post("users/trashed/{user}/restore", [
-			UserController::class,
-			"restore",
-		])->name("users.trashed.restore");
-		Route::post("users/trashed/{user}/delete", [
-			UserController::class,
-			"delete",
-		])->name("users.trashed.delete");
 
 		Route::resource("users", UserController::class);
 
+		Route::post("users/{user}/restore", [
+			UserController::class,
+			"restore",
+		])->name("users.restore");
+		Route::post("users/{user}/delete", [UserController::class, "delete"])->name(
+			"users.delete"
+		);
 		Route::post("users/{user}/toggle", [
 			UserController::class,
 			"toggleActive",
