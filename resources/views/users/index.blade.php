@@ -13,6 +13,9 @@
       <a href="{{ route('usermanagement.users.create') }}" class="btn btn-success">
         <i class="fas fa-fw fa-plus"></i>
       </a>
+      <a href="{{ route('usermanagement.users.trashed') }}" class="btn btn-danger">
+        <i class="fas fa-fw fa-trash"></i>
+      </a>
     </div>
     @endcan
   </div>

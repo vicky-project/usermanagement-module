@@ -17,6 +17,17 @@ Route::middleware(["web", "auth"])
 			UserController::class,
 			"toggleActive",
 		])->name("users.toggle-active");
+		Route::get("users/trashed", [UserController::class, "trashed"])->name(
+			"users.trashed"
+		);
+		Route::post("users/trashed/{user}/restore", [
+			UserController::class,
+			"restore",
+		])->name("users.trashed.restore");
+		Route::post("users/trashed/{user}/delete", [
+			UserController::class,
+			"delete",
+		])->name("users.trashed.delete");
 
 		Route::resource("roles", RoleController::class);
 		Route::post("roles/{role}/sync-perms", [

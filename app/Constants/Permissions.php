@@ -10,6 +10,7 @@ class Permissions
 	const EDIT_USERS = "usermanagement.users.edit";
 	const DELETE_USERS = "usermanagement.users.delete";
 	const MANAGE_USERS = "usermanagement.users.manage";
+	const VIEW_USERS_TRASH = "usermanagement.users.view-trash";
 
 	// Role Permissions
 	const VIEW_ROLES = "usermanagement.roles.view";
@@ -35,6 +36,7 @@ class Permissions
 			self::EDIT_USERS => "Edit users",
 			self::DELETE_USERS => "Delete users",
 			self::MANAGE_USERS => "Manage users (activate/deactivate)",
+			self::VIEW_USERS_TRASH => "View users trash",
 
 			self::VIEW_ROLES => "View roles",
 			self::CREATE_ROLES => "Create roles",

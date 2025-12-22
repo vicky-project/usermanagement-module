@@ -40,6 +40,9 @@ class UserController extends Controller
 		$this->middleware(["permission:" . Permissions::MANAGE_USERS])->only([
 			"toggleActive",
 		]);
+		$this->middleware(["permission:" . Permissions::VIEW_USERS_TRASH])->only([
+			"trash",
+		]);
 	}
 
 	public function index(Request $request)
@@ -146,6 +149,11 @@ class UserController extends Controller
 				->with("error", "Tidak dapat menghapus akun sendiri.");
 		}
 
+		$user->syncRoles([]);
+		$user->syncPermissions([]);
+		app()[
+			\Spatie\Permission\PermissionRegistrar::class
+		]->forgetCachedPermissions();
 		$user->delete();
 
 		return redirect()
@@ -163,5 +171,37 @@ class UserController extends Controller
 		$user->save();
 
 		return back()->with("success", "Berhasil menonaktifkan user.");
+	}
+
+	public function trashed(Request $request)
+	{
+		$trashed = User::onlyTrashed()->get();
+
+		return view("usermanagement::users.trashed", compact("trashed"));
+	}
+
+	public function restore(Request $request, User $user)
+	{
+		$user->restore();
+
+		return redirect()
+			->route("usermanagement.users.index")
+			->with("success", "Restore deleted user successfuly.");
+	}
+
+	public function delete(Request $request, User $user)
+	{
+		// Prevent deleting yourself
+		if ($user->id === auth()->id()) {
+			return redirect()
+				->back()
+				->with("error", "Tidak dapat menghapus akun sendiri.");
+		}
+
+		$user->forceDelete();
+
+		return redirect()
+			->route("usermanagement.users.index")
+			->with("success", "Permanent deleted user successfuly.");
 	}
 }
