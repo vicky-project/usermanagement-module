@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="pt-2 mt-4 border-top border-primary">
-        <button class="btn btn-block bg-success" @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_USERS))>
+        <button class="btn btn-block btn-success" @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_USERS))>
           <i class="fas fa-fw fa-paper-plane"></i>
           Save
         </button>

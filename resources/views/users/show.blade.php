@@ -9,9 +9,7 @@
   <div class="card-header text-end">
     <div class="float-start me-auto">
       <a href="{{ route('usermanagement.users.index') }}" class="btn btn-secondary">
-        <svg class="icon">
-          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-left') }}"></use>
-        </svg>
+        <i class="fas fa-fw fa-arrow-left"></i>
       </a>
     </div>
     <h5 class="card-title">{{ $user->name }}</h5><span class="small ms-1">{{ $user->email }}</span>

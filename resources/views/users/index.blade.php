@@ -56,6 +56,13 @@
                   <i class="fas fa-fw fa-edit"></i>
                 </a>
                 @endcan
+                @can(Permissions::DELETE_USERS)
+                <form method="POST" action="{{ route('usermanagement.users.destroy') }}">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-outline-danger" title="Delete" onclick="return confirm('Are you sure to delete this user?');"></button>
+                </form>
+                @endcan
               </div>
             </td>
           </tr>
