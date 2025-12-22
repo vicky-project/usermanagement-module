@@ -5,12 +5,12 @@
 @section('content')
 <div class="card">
   <div class="card-header text-end">
-    <h5 class="card-title">Deleted Users</h5>
     <div class="float-start me-auto">
       <a href="{{ route('usermanagement.users.index') }}" class="btn btn-secondary" role="button" title="Back">
         <i class="fas fa-fw fa-arrow-left"></i>
       </a>
     </div>
+    <h5 class="card-title">Deleted Users</h5>
   </div>
   <div class="card-body">
     <div class="table-responsive">
