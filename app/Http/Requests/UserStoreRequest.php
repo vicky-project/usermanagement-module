@@ -21,13 +21,12 @@ class UserStoreRequest extends FormRequest
 	public function rules()
 	{
 		$tableNames = config("permission.table_names");
+		dd($this->request->all());
 		return [
 			"name" => "required|string|max:255",
 			"email" => "required|email|unique:users,email",
 			"password" => ["required", Password::defaults()],
 			"roles.*" => "exists:" . $tableNames["roles"] . ",name",
-			"permissions" => "required|array",
-			"permissions.*" => "exists:" . $tableNames["permissions"] . ",name",
 			"is_active" => "boolean",
 		];
 	}
