@@ -17,7 +17,7 @@ class PostInstallation
 			$result = $this->insertTraitToUserModel();
 			logger()->info($result["message"]);
 
-			Artisan::call("migrate:fresh", ["--force" => true]);
+			Artisan::call("migrate", ["--force" => true]);
 			Artisan::call("module:seed", [
 				"module" => $module->getName(),
 				"--force" => true,
