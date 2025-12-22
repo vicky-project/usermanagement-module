@@ -89,7 +89,7 @@
 </div>
 @endsection
 
-@section("scripts")
+@push("scripts")
 <script>
   function toggleCheckboxRoles(btn) {
     const checked = btn.checked;
@@ -128,4 +128,4 @@
     }
   });
 </script>
-@endsection
+@endpush

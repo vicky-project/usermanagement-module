@@ -42,7 +42,7 @@
 </div>
 @endsection
 
-@section("scripts")
+@push("scripts")
 <script>
   window.addEventListener("DOMContentLoaded", function() {
     const btnIsActive = document.getElementById("btn-user-active");
@@ -51,4 +51,4 @@
     });
   });
 </script>
-@endsection
+@endpush
