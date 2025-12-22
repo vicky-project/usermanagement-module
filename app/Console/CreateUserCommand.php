@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Console;
+namespace Modules\UserManagement\Console;
 
 use App\Models\User;
 use Spatie\Permission\Models\Permission;
