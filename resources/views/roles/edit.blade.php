@@ -40,7 +40,7 @@
             @foreach($permission as $perm)
               <div class="col p-3 bg-info bg-opacity-5 border border-info border-start-0 rounded-end">
                 <div class="form-check form-switch form-switch-xl">
-                  <input class="form-check-input" type="checkbox" id="permission-{{$perm->id}}" name="permissions[]" value="{{$perm->name}}" @checked(in_array($rolePermissions, $perm->id)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_ROLES))>
+                  <input class="form-check-input" type="checkbox" id="permission-{{$perm->id}}" name="permissions[]" value="{{$perm->name}}" @checked(in_array($perm->id, $rolePermissions)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_ROLES))>
                   <label class="form-check-label" for="permission-{{$perm->id}}">{{$perm->description ?? str($perm->name)->replace('.', ' ')}}</label>
                 </div>
               </div>
