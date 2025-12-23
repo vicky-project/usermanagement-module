@@ -108,7 +108,6 @@ class RoleController extends Controller
 		});
 
 		$rolePermissions = $role->permissions->pluck("id")->toArray();
-		dd($permissions, $rolePermissions);
 
 		return view(
 			"usermanagement::roles.edit",
