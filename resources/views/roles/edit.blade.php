@@ -1,6 +1,9 @@
 @extends('usermanagement::layouts.app')
 
 @section('title', $role->name)
+
+@use('Modules\UserManagement\Services\PermissionRegistry')
+
 @section('content')
 <div class="card">
   <div class="card-header text-end">
