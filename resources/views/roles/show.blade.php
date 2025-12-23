@@ -20,11 +20,15 @@
     <ul class="list-group list-group-flush">
       @forelse($role->users as $user)
       <li class="list-group-item">
-        {{ $user->name }}
+        <span class="small text-muted">
+          {{ $user->name }}
+        </span>
       </li>
       @empty
       <li class="list-group-item">
-        No user in this role.
+        <span class="small text-muted">
+          No user in this role.
+        </span>
       </li>
       @endforelse
     </ul>
@@ -34,9 +38,9 @@
       </div>
       <div class="col-md-auto">
         <div class="form-check form-switch form-switch-lg float-end ms-auto">
-            <input class="form-check-input" type="checkbox" id="permission-toggle" onchange="toggleCheckboxPermissions(this)">
-            <label class="form-check-label" for="permission-toggle">Select/Disselect All</label>
-          </div>
+          <input class="form-check-input" type="checkbox" id="permission-toggle" onchange="toggleCheckboxPermissions(this)">
+          <label class="form-check-label" for="permission-toggle">Select/Disselect All</label>
+        </div>
       </div>
     </div>
     <form method="POST" action="{{ route('usermanagement.roles.sync-perms', $role) }}">

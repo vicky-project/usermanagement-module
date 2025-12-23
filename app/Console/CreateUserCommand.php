@@ -57,6 +57,8 @@ class CreateUserCommand extends Command implements PromptsForMissingInput
 
 			$this->info("Assign user to roles..");
 			$user->syncRoles($roles);
+
+			$this->info("Done.");
 		} catch (\Exception $e) {
 			$this->error($e->getMessage());
 		}
