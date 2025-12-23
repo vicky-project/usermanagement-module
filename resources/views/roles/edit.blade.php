@@ -39,8 +39,8 @@
         <div class="col-md-4 col-lg-2">
           <strong>{{ $name }}</strong>
         </div>
-        <div class="col-md-8 col-lg-10 m-2 bg-secondary bg-opacity-50 border border-info border-start-0 rounded-end">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <div class="col-md-8 col-lg-10 p-2 bg-secondary bg-opacity-50 border border-info border-start-0 rounded-end">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-2">
             @foreach($permission as $perm)
               <div class="col">
                 <div class="form-check form-switch form-switch-xl">
