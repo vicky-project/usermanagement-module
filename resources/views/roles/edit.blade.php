@@ -37,7 +37,7 @@
       @forelse($permissions as $name => $permission)
       <div class="row border-bottom border-info pb-2 mb-4">
         <div class="col-md-4 col-lg-2">
-          <strong>{{ $name }}</strong>
+          <strong>{{ str($name)->upper() }}</strong>
         </div>
         <div class="col-md-8 col-lg-10 p-2 border border-info rounded">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-2">
