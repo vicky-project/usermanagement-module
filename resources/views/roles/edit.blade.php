@@ -3,6 +3,7 @@
 @section('title', $role->name)
 
 @use('Modules\UserManagement\Services\PermissionRegistry')
+@use('Modules\UserManagement\Constants\Permissions')
 
 @section('content')
 <div class="card">
