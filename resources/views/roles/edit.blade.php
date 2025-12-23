@@ -30,18 +30,27 @@
           </div>
         </div>
       </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-2">
-        @forelse($permissions as $permission)
-        <div class="col">
-          <div class="form-check form-switch form-switch-xl">
-            <input class="form-check-input" type="checkbox" id="permission-{{$permission->id}}" name="permissions[]" value="{{$permission->name}}" @checked(in_array($permission->id, $rolePermissions)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_ROLES))>
-            <label class="form-check-label" for="permission-{{$permission->id}}">{{$permission->description ?? str($permission->name)->replace('.', ' ')}}</label>
+      @forelse($permissions as $name => $permission)
+      <div class="row">
+        <div class="col-md-4 col-lg-2">
+          <strong>{{ $name }}</strong>
+        </div>
+        <div class="col-md-8 col-lg-10">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-2">
+            @foreach($permission as $perm)
+              <div class="col p-3 bg-info bg-opacity-5 border border-info border-start-0 rounded-end">
+                <div class="form-check form-switch form-switch-xl">
+                  <input class="form-check-input" type="checkbox" id="permission-{{$perm->id}}" name="permissions[]" value="{{$perm->name}}" @checked(in_array($rolePermissions, $perm->id)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::EDIT_ROLES))>
+                  <label class="form-check-label" for="permission-{{$perm->id}}">{{$perm->description ?? str($perm->name)->replace('.', ' ')}}</label>
+                </div>
+              </div>
+            @endforeach
           </div>
         </div>
-        @empty
-        No permission available.
-        @endforelse
       </div>
+      @empty
+      <span>No permission available.</span>
+      @endforelse
       <div class="pt-2 mt-4 border-top border-primary">
         <button type="submit" class="btn btn-block btn-success">
           <i class="fas fa-paper-plane"></i>
