@@ -45,24 +45,33 @@
     </div>
     <form method="POST" action="{{ route('usermanagement.roles.sync-perms', $role) }}">
       @csrf
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-2">
-        @forelse($permissions as $permission)
-        <div class="col">
-          <div class="form-check form-switch form-switch-xl">
-            <input class="form-check-input" type="checkbox" id="permission-{{$permission->id}}" name="permissions[]" value="{{$permission->name}}" @checked($roleHasPermissions->has($permission->name)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::MANAGE_ROLES))>
-            <label class="form-check-label" for="permission-{{$permission->id}}">{{$permission->description ?? str($permission->name)->replace('.', ' ')}}</label>
+      @forelse($permissions as $name => $permission)
+      <div class="row pb-2 mb-4 border-bottom border-info">
+        <div class="col-md-4 col-lg-12">
+          <strong>{{ str($name)->upper() }}</strong>
+        </div>
+        <div class="col-md-8 col-lg-10 p-2 border border-info rounded">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-2">
+            @forelse($permission as $perm)
+              <div class="col">
+                <div class="form-check form-switch form-switch-xl">
+                  <input class="form-check-input" type="checkbox" id="permission-{{$perm->id}}" name="permissions[]" value="{{$perm->name}}" @checked($roleHasPermissions->has($perm->name)) @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::MANAGE_ROLES))>
+                  <label class="form-check-label" for="permission-{{$perm->id}}">{{$perm->description ?? str($perm->name)->replace('.', ' ')}}</label>
+                </div>
+              </div>
+            @empty
+              No permission available.
+            @endforelse
           </div>
         </div>
-        @empty
-        No permission available.
-        @endforelse
       </div>
-      <div class="pt-2 mt-4 border-top border-primary">
-        <button type="submit" class="btn btn-block btn-success" @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::MANAGE_ROLES))>
-          <i class="fas fa-fw fa-sync-alt"></i>
-          Apply
-        </button>
-      </div>
+      @empty
+      <span>No Permission available</span>
+      @endforelse
+      <button type="submit" class="btn btn-block btn-success" @disabled((new PermissionRegistry())->userCanNot(auth()->user(), Permissions::MANAGE_ROLES))>
+        <i class="fas fa-fw fa-sync-alt"></i>
+        Apply
+      </button>
     </form>
   </div>
 </div>

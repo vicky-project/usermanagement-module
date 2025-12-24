@@ -55,12 +55,10 @@
       @empty
       <span>No permission available.</span>
       @endforelse
-      <div class="pt-2 mt-4 border-top border-primary">
-        <button type="submit" class="btn btn-block btn-success">
-          <i class="fas fa-paper-plane"></i>
+      <button type="submit" class="btn btn-block btn-success">
+        <i class="fas fa-paper-plane"></i>
           Save
-        </button>
-      </div>
+      </button>
     </form>
   </div>
 </div>

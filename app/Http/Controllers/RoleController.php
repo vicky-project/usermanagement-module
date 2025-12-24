@@ -77,7 +77,9 @@ class RoleController extends Controller
 
 	public function show(Request $request, Role $role)
 	{
-		$permissions = Permission::all();
+		$permissions = Permission::all()->groupBy(function ($item) {
+			return explode(".", $item->name)[0] ?? "other";
+		});
 		$roleHasPermissions = $role->permissions->pluck("id", "name");
 		$role->load("permissions", "users");
 
