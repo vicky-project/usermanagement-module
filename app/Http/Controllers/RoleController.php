@@ -119,10 +119,11 @@ class RoleController extends Controller
 
 	public function update(Request $request, Role $role)
 	{
+		$tableNames = config("permission.table_names");
 		$request->validate([
 			"name" => "required|string|unique:roles,name," . $role->id,
 			"permissions" => "required|array",
-			"permissions.*" => "exists:permissions,id",
+			"permissions.*" => "exists:" . $tableNames["permissions"] . ",name",
 		]);
 
 		DB::transaction(function () use ($request, $role) {
